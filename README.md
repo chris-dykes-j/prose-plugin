@@ -11,20 +11,26 @@ Personal plugin for writing fiction in NeoVim. Written partly to reduce keystrok
   - [ ] Quotes could have modes 'minimal,' 'exhaustive,' and 'custom' for the dialogue tag lists (likely not necessary but interesting to implement).
     - [ ] Combination of 'exhaustive' plus 'custom.'
 - [ ] Extend quotes functionality.
-  - [ ] Interactivity to cover edge cases. ("Blah blah," she said. She did some gesture or action in between the dialogue. "Blah blah blah, blah blah blah blah.")
+  - [ ] Interactivity to cover edge cases.
+  - ("Blah blah," she said. She did something or whatever in between her dialogue. "Blah blah blah, blah blah blah blah.")
 
 ## How to setup
-Some keymaps to use for formatting.
+Some keymaps to use for formatting. Note the limit to markdown and text files.
 
 ```lua
-local prose = require 'prose'
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'markdown', 'text' },
+  callback = function()
+    local prose = require 'prose'
 
--- Quotations
-vim.keymap.set('n', '<C-q>', function() prose.quote:add_quotations() end, { desc = 'Add quotation marks to current line' })
-vim.keymap.set('i', '<C-q>', function() prose.quote:add_quotations() end, { desc = 'Add quotation marks to current line' })
-vim.keymap.set('x', 'q', function() prose.quote:add_quotes_to_selection() end, { desc = 'Add quotation marks to the current selection line by line' })
+    -- Quotations
+    vim.keymap.set('n', '<C-q>', function() prose.quote:add_quotations() end, { desc = 'Add quotation marks to current line' })
+    vim.keymap.set('i', '<C-q>', function() prose.quote:add_quotations() end, { desc = 'Add quotation marks to current line' })
+    vim.keymap.set('x', 'q', function() prose.quote:add_quotes_to_selection() end, { desc = 'Add quotation marks to the current selection line by line' })
 
--- Italics
-vim.keymap.set('n', '<C-i>', function() prose.italicize:italicize() end, { desc = 'Italicize current line' })
-vim.keymap.set('i', '<C-i>', function() prose.italicize:italicize() end, { desc = 'Italicize current line' })
+    -- Italics
+    vim.keymap.set('n', '<C-i>', function() prose.italicize:italicize() end, { desc = 'Italicize current line' })
+    vim.keymap.set('i', '<C-i>', function() prose.italicize:italicize() end, { desc = 'Italicize current line' })
+  end,
+})
 ```
