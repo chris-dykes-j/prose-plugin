@@ -7,12 +7,12 @@ local function add_emdash()
 	local line = vim.api.nvim_get_current_line()
 
 	local before_cursor = line:sub(1, col)
-	if before_cursor:sub(-2) == "--" then
+	if before_cursor:sub(-1) == "-" then
 		local after_cursor = line:sub(col + 1)
-		local new_line = before_cursor:sub(1, -3) .. "—" .. after_cursor
+		local new_line = before_cursor:sub(1, -2) .. "—" .. after_cursor
 
 		vim.api.nvim_set_current_line(new_line)
-		vim.api.nvim_win_set_cursor(0, { row, col + 1 })
+		vim.api.nvim_win_set_cursor(0, { row, col + 2 })
 	else
 		vim.api.nvim_put({ "-" }, "c", false, true)
 	end
