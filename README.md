@@ -13,6 +13,7 @@ Personal plugin for writing fiction in NeoVim. Written partly to reduce keystrok
 - [ ] Extend quotes functionality.
   - [ ] Interactivity to cover edge cases.
   - ("Blah blah," she said. She did something or whatever in between her dialogue. "Blah blah blah, blah blah blah blah.")
+- [ ] Adjust cursor position for quotes and italicize functionality (going to be a tricky problem).
 
 ## How to setup
 Some keymaps to use for formatting. Note the limit to markdown and text files.

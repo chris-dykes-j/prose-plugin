@@ -1,8 +1,8 @@
 local M = {}
 
 M.emdash = require("prose.emdash")
-M.italicize = require("prose.italicize")
 M.quote = require("prose.quote")
+M.italicize = require("prose.italicize")
 
 M.emdash.setup()
 

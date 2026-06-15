@@ -1,3 +1,5 @@
+said
+asked
 whispered
 muttered
 murmured
@@ -5,5 +7,6 @@ shouted
 replied
 snarled
 barked
-asked
-said
+sobbed
+cried
+
